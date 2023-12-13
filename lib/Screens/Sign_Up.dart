@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:practiceapp/Screens/set_Location.dart';
 import 'package:practiceapp/Widgets/genericTextWidget.dart';
 import 'package:practiceapp/Widgets/textfeild.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
@@ -38,25 +40,30 @@ class SignUpScreen extends StatelessWidget {
               feildWidget("Mobile Number"),
               Spacer(),
               Center(
-                child: Container(
-                  height: 7.h,
-                  width: 40.w,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20),
-                    gradient: LinearGradient(
-                      colors: [
-                        Color(0xff46F889),
-                        Color(0xff15BE77),
-                      ],
-                      begin: Alignment.topLeft,
-                      end: Alignment.topRight,
+                child: InkWell(
+                  onTap: () {
+                    Get.to(() => SetLocation());
+                  },
+                  child: Container(
+                    height: 7.h,
+                    width: 40.w,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(20),
+                      gradient: LinearGradient(
+                        colors: [
+                          Color(0xff46F889),
+                          Color(0xff15BE77),
+                        ],
+                        begin: Alignment.topLeft,
+                        end: Alignment.topRight,
+                      ),
                     ),
-                  ),
-                  child: Align(
-                    child: genericTextWidget("Next",
-                        color: Colors.white,
-                        fontSize: 17.sp,
-                        fontWeight: FontWeight.w600),
+                    child: Align(
+                      child: genericTextWidget("Next",
+                          color: Colors.white,
+                          fontSize: 17.sp,
+                          fontWeight: FontWeight.w600),
+                    ),
                   ),
                 ),
               ),

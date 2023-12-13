@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:practiceapp/Controller/AuthController.dart';
+import 'package:practiceapp/Screens/Sign_Up.dart';
 import 'package:practiceapp/Widgets/genericTextWidget.dart';
 import 'package:practiceapp/Widgets/textfeildWidget.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
@@ -27,7 +28,7 @@ class _SignInScreenState extends State<SignInScreen> {
                 resizeToAvoidBottomInset: false,
                 body: Stack(
                   children: [
-                    Image.asset("assets/images/back.png"),
+                    Image.asset("assets/images/backk.png"),
                     SafeArea(
                       child: Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 12),
@@ -213,25 +214,30 @@ class _SignInScreenState extends State<SignInScreen> {
                                 ],
                               ),
                               SizedBox(height: 6.h),
-                              Container(
-                                height: 7.h,
-                                width: 50.w,
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(20),
-                                  gradient: LinearGradient(
-                                    colors: [
-                                      Color(0xff46F889),
-                                      Color(0xff15BE77),
-                                    ],
-                                    begin: Alignment.topLeft,
-                                    end: Alignment.topRight,
+                              InkWell(
+                                onTap: () {
+                                  Get.to(() => SignUpScreen());
+                                },
+                                child: Container(
+                                  height: 7.h,
+                                  width: 50.w,
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(20),
+                                    gradient: LinearGradient(
+                                      colors: [
+                                        Color(0xff46F889),
+                                        Color(0xff15BE77),
+                                      ],
+                                      begin: Alignment.topLeft,
+                                      end: Alignment.topRight,
+                                    ),
                                   ),
-                                ),
-                                child: Align(
-                                  child: genericTextWidget("Create Account",
-                                      color: Colors.white,
-                                      fontSize: 17.sp,
-                                      fontWeight: FontWeight.w600),
+                                  child: Align(
+                                    child: genericTextWidget("Create Account",
+                                        color: Colors.white,
+                                        fontSize: 17.sp,
+                                        fontWeight: FontWeight.w600),
+                                  ),
                                 ),
                               ),
                               SizedBox(height: 3.h),

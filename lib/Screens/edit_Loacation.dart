@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:practiceapp/Screens/edit_Payment.dart';
 import 'package:practiceapp/Widgets/Shipping2Widget.dart';
 import 'package:practiceapp/Widgets/ShippingWidget.dart';
 import 'package:practiceapp/Widgets/genericTextWidget.dart';
@@ -24,9 +25,14 @@ class EditLocation extends StatelessWidget {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Image.asset(
-                            "assets/icons/back.png",
-                            height: 4.5.h,
+                          InkWell(
+                            onTap: () {
+                              Get.to(() => EditPayment());
+                            },
+                            child: Image.asset(
+                              "assets/icons/back.png",
+                              height: 5.h,
+                            ),
                           ),
                           SizedBox(
                             height: 1.h,

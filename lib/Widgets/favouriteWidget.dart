@@ -15,17 +15,19 @@ Widget favourateWidget2(String isImage) {
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
         child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Image.asset(
               isImage,
               height: 9.h,
             ),
+            SizedBox(
+              width: 3.w,
+            ),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 genericTextWidget("Spicy fresh crab",
-                    fontSize: 16.sp, fontWeight: FontWeight.w600),
+                    fontSize: 15.sp, fontWeight: FontWeight.w600),
                 SizedBox(
                   height: .4.h,
                 ),
@@ -40,9 +42,10 @@ Widget favourateWidget2(String isImage) {
                     color: Color(0xffBEBEBE), fontSize: 18.sp),
               ],
             ),
+            Spacer(),
             Container(
               height: 3.5.h,
-              width: 26.w,
+              width: 22.w,
               decoration: BoxDecoration(
                 color: Color(0xffBEBEBE),
                 borderRadius: BorderRadius.circular(20),
@@ -50,7 +53,7 @@ Widget favourateWidget2(String isImage) {
               child: Align(
                 child: genericTextWidget("Process",
                     color: Colors.white,
-                    fontSize: 15.sp,
+                    fontSize: 14.sp,
                     fontWeight: FontWeight.w600),
               ),
             ),

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:practiceapp/Widgets/genericTextWidget.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
-Widget favourateWidget(String isImage) {
+Widget favourateWidget(String isImage, String text) {
   return Padding(
     padding: const EdgeInsets.all(8.0),
     child: Container(
@@ -22,17 +22,19 @@ Widget favourateWidget(String isImage) {
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
         child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Image.asset(
               isImage,
               height: 9.h,
             ),
+            SizedBox(
+              width: 3.w,
+            ),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 genericTextWidget("Spicy fresh crab",
-                    fontSize: 16.sp, fontWeight: FontWeight.w600),
+                    fontSize: 15.sp, fontWeight: FontWeight.w600),
                 SizedBox(
                   height: .4.h,
                 ),
@@ -47,9 +49,10 @@ Widget favourateWidget(String isImage) {
                     color: Color(0xff53E88B), fontSize: 18.sp),
               ],
             ),
+            Spacer(),
             Container(
               height: 3.5.h,
-              width: 26.w,
+              width: 22.w,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(20),
                 gradient: LinearGradient(
@@ -62,9 +65,9 @@ Widget favourateWidget(String isImage) {
                 ),
               ),
               child: Align(
-                child: genericTextWidget("Process",
+                child: genericTextWidget(text,
                     color: Colors.white,
-                    fontSize: 15.sp,
+                    fontSize: 14.sp,
                     fontWeight: FontWeight.w600),
               ),
             ),

@@ -53,10 +53,10 @@ class YourOrder extends StatelessWidget {
                           ),
                           searchWidget(),
                           favourateWidget(
-                            "assets/images/food1.png",
+                            "assets/images/food1.png","Process"
                           ),
                           favourateWidget(
-                            "assets/images/food2.png",
+                            "assets/images/food2.png", "Process"
                           ),
                           favourateWidget2(
                             "assets/images/food3.png",

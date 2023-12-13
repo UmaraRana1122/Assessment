@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:practiceapp/Screens/confirm_Order.dart';
 import 'package:practiceapp/Widgets/genericTextWidget.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
@@ -19,9 +20,14 @@ class EditPayment extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Image.asset(
-                        "assets/icons/back.png",
-                        height: 5.h,
+                      InkWell(
+                        onTap: () {
+                          Get.to(() => ConfirmOrder());
+                        },
+                        child: Image.asset(
+                          "assets/icons/back.png",
+                          height: 5.h,
+                        ),
                       ),
                       SizedBox(
                         height: 2.h,

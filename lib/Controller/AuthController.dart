@@ -3,9 +3,12 @@ import 'package:get/get.dart';
 
 class AuthController extends GetxController {
   int currentindex = 0;
+  int selectedPage = 0;
+
   int selectedindex = 0;
   int selectindex = 0;
   int currentIndex2 = 0;
+  int resetSlideIndex = 0;
 
   TextEditingController name = TextEditingController();
   TextEditingController name2 = TextEditingController();
@@ -28,7 +31,7 @@ class AuthController extends GetxController {
   TextEditingController month3 = TextEditingController();
   TextEditingController year3 = TextEditingController();
   final TextEditingController message = TextEditingController();
-
+final pageController = PageController();
   bool check = false;
   bool isCheck = false;
    bool check2 = false;
