@@ -16,50 +16,6 @@ class HomeScreen2 extends StatelessWidget {
     return GetBuilder<AuthController>(
         init: AuthController(),
         builder: (AuthController _) => Scaffold(
-              bottomNavigationBar: Container(
-                height: 10.h,
-                width: 100.w,
-                decoration: BoxDecoration(color: Color(0xffFFFFFF)),
-                child: Padding(
-                  padding: const EdgeInsets.all(30),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      InkWell(
-                          onTap: () {
-                            _.currentindex = 0;
-                          },
-                          child: _.currentindex == 0
-                              ? Image.asset("assets/icons/home.png",
-                                  height: 2.5.h)
-                              : Image.asset(
-                                  "assets/icons/home3.png",
-                                  height: 2.5.h,
-                                )),
-                      InkWell(
-                          onTap: () {
-                            _.currentindex = 1;
-                          },
-                          child: _.currentindex == 1
-                              ? Image.asset("assets/icons/user.png",
-                                  height: 2.5.h)
-                              : Image.asset(
-                                  "assets/icons/home.png",
-                                  height: 2.5.h,
-                                )),
-                      InkWell(
-                          onTap: () {
-                            _.currentindex = 2;
-                          },
-                          child: Image.asset("assets/icons/cart.png",
-                              color: _.currentindex == 2
-                                  ? Colors.black
-                                  : Colors.black12,
-                              height: 2.5.h)),
-                    ],
-                  ),
-                ),
-              ),
               body: Stack(
                 children: [
                   Image.asset("assets/images/pattern.png"),

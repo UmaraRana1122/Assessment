@@ -244,5 +244,3 @@ class OrderDetail extends StatelessWidget {
             ));
   }
 }
-
-void doNothing(BuildContext context) {}

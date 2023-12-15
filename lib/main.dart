@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:practiceapp/Screens/order_Detail.dart';
+import 'package:practiceapp/Screens/newScreen.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 void main() {
@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
       builder: (context, orientation, screenType) {
         return GetMaterialApp(
           debugShowCheckedModeBanner: false,
-          home: OrderDetail(),
+          home: MyHomePage(),
         );
       },
     );
