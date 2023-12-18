@@ -3,11 +3,21 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
-import 'package:practiceapp/Screens/confirm_Order.dart';
+import 'package:practiceapp/Screens/store.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 void main() {
   runApp(const MyApp());
+}
+
+Future<void> onInit() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+  EasyLoading.instance.indicatorType = EasyLoadingIndicatorType.cubeGrid;
+  EasyLoading.instance.toastPosition = EasyLoadingToastPosition.top;
+  EasyLoading.instance.dismissOnTap = false;
+  EasyLoading.instance.displayDuration = const Duration(seconds: 3);
 }
 
 class MyApp extends StatelessWidget {
@@ -20,19 +30,9 @@ class MyApp extends StatelessWidget {
       builder: (context, orientation, screenType) {
         return GetMaterialApp(
           debugShowCheckedModeBanner: false,
-          home: ConfirmOrder(),
+          home: AddData(),
         );
       },
     );
   }
-}
-
-Future<void> onInit() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
-  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
-  EasyLoading.instance.indicatorType = EasyLoadingIndicatorType.cubeGrid;
-  EasyLoading.instance.toastPosition = EasyLoadingToastPosition.top;
-  EasyLoading.instance.dismissOnTap = false;
-  EasyLoading.instance.displayDuration = const Duration(seconds: 3);
 }
