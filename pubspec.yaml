@@ -56,6 +56,16 @@ dependencies:
   flutter_polyline_points: ^2.0.0
   flutter_pin_code_widget: ^0.1.0
   flutter_otp_text_field: ^1.1.1
+  get_storage: ^2.1.1
+  cloud_firestore: ^4.9.1
+  firebase_storage: ^11.2.6
+  flutter_easyloading: ^3.0.5
+  flutter_image_compress:
+  firebase_auth: ^4.9.0
+  flutter_cache_manager: ^3.3.1
+  google_sign_in: 
+  crypto: 
+  firebase_core:
 
 
 dev_dependencies:

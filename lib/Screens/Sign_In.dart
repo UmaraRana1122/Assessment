@@ -78,6 +78,7 @@ class _SignInScreenState extends State<SignInScreen> {
                                     ],
                                   ),
                                   child: TextFormField(
+                                    controller: _.email,
                                     obscureText: _isObscure,
                                     cursorColor: Color(0xff4B5768),
                                     style: GoogleFonts.quicksand(

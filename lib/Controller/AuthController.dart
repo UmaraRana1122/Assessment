@@ -4,6 +4,10 @@ import 'package:get/get.dart';
 class AuthController extends GetxController {
   int currentindex = 0;
 
+  TextEditingController email = TextEditingController();
+  TextEditingController name = TextEditingController();
+  TextEditingController password = TextEditingController();
+
 
 final pageController = PageController();
   bool check = false;
