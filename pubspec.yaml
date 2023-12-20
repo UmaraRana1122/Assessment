@@ -66,6 +66,8 @@ dependencies:
   google_sign_in: 
   crypto: 
   firebase_core:
+  shimmer: ^3.0.0
+  math_expressions: ^2.4.0
 
 
 dev_dependencies:

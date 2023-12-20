@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:practiceapp/Controller/AuthController.dart';
 import 'package:practiceapp/Screens/set_Location.dart';
 import 'package:practiceapp/Widgets/genericTextWidget.dart';
 import 'package:practiceapp/Widgets/textfeild.dart';
@@ -10,7 +11,9 @@ class SignUpScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return GetBuilder<AuthController>(
+        init: AuthController(),
+        builder: (AuthController _) =>Scaffold(
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 14),
@@ -71,6 +74,6 @@ class SignUpScreen extends StatelessWidget {
           ),
         ),
       ),
-    );
+    ));
   }
 }
