@@ -5,6 +5,9 @@ import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
 import 'package:practiceapp/API/fireSroteAPI.dart';
 import 'package:practiceapp/Screens/Sign_In.dart';
+import 'package:practiceapp/Screens/forgotPassword.dart';
+import 'package:practiceapp/Screens/login.dart';
+import 'package:practiceapp/Screens/verification_Code.dart';
 import 'package:practiceapp/services/authservices.dart';
 import 'package:practiceapp/services/fireStoreServices.dart';
 import 'package:practiceapp/services/localServices.dart';
@@ -48,7 +51,7 @@ class MyApp extends StatelessWidget {
       builder: (context, orientation, screenType) {
         return GetMaterialApp(
           debugShowCheckedModeBanner: false,
-          home: SignInScreen(),
+          home: ForgotPasswordScreen(),
           builder: EasyLoading.init(),
         );
       },

@@ -16,12 +16,9 @@ class AuthController extends GetxController {
   TextEditingController password = TextEditingController();
   TextEditingController cPassword = TextEditingController();
 
-
-
-
   bool check = false;
   bool isCheck = false;
-   bool check2 = false;
+  bool check2 = false;
   bool isCheck2 = false;
   suggestName() async {
     if (currentUser.userName == "") {
@@ -35,8 +32,8 @@ class AuthController extends GetxController {
 
       if (check) {
         // If the generated username already exists
-        bool check = await Get.find<FirestoreServices>()
-            .checkUserNameExit(name.text);
+        bool check =
+            await Get.find<FirestoreServices>().checkUserNameExit(name.text);
 // Check again (this looks like redundant code)
         if (check) {
           suggestName();
@@ -166,21 +163,22 @@ class AuthController extends GetxController {
     //If not, show an info message and return without further processing.
     EasyLoading.show();
     // Show a loading indicator to indicate that the password reset process is in progress.
-    String str = await Get.find<AuthServices>().forgetPassword(email.text);
-    // Call a method from the `AuthServices` to initiate the password reset process for the provided email address. The method returns a string `str`, which may indicate success or an error message.
-
-    if (str == "") {
-      // If the `str` is empty, it likely means the password reset process was initiated successfully.
-      EasyLoading.dismiss();
-      // Dismiss the loading indicator.
-      EasyLoading.showInfo('Check your email\nfor reset password');
-      // Show an info message indicating that the user should check their email for instructions on resetting their password.
-
-      Get.back();
-      // Navigate back, possibly closing the current screen or dialog.
-    } else {
-      // If there was an error (i.e., `str` is not empty), show an error message using `EasyLoading`.
-      EasyLoading.showError(str);
+    try {
+      String str = await Get.find<AuthServices>().forgetPassword(email.text);
+      if (str == "") {
+        // Password reset initiated successfully
+        EasyLoading.dismiss();
+        EasyLoading.showInfo('Check your email for reset password');
+        Get.back();
+      } else {
+        // Log or display the error message
+        print("Password reset error: $str");
+        EasyLoading.showError(str);
+      }
+    } catch (error) {
+      // Handle any exceptions that might occur
+      print("Exception during password reset: $error");
+      EasyLoading.showError("An error occurred during password reset");
     }
   }
 
@@ -313,6 +311,5 @@ class AuthController extends GetxController {
       EasyLoading.showInfo('Error in Login');
       // Show an info message indicating an error in login.
     }
- 
-}
+  }
 }

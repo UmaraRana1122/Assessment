@@ -94,7 +94,7 @@ class VerificationCode extends StatelessWidget {
                           Center(
                             child: InkWell(
                               onTap: () {
-                                Get.to(() => ViaMethod());
+                             _.forgetPassword();
                               },
                               child: Container(
                                 height: 7.h,
