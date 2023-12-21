@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:practiceapp/Screens/via_method.dart';
 import 'package:practiceapp/Widgets/genericTextWidget.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
