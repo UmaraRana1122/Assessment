@@ -1,27 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
 
-Widget textFieldOTP(BuildContext context,
+Widget textFieldOTP( context, TextEditingController otpControllers,
     {bool first = false, bool last = false}) {
   return SizedBox(
     height: 85,
+    width: 10.w,
     child: AspectRatio(
       aspectRatio: 1.0,
       child: TextField(
-        autofocus: true,
-        onChanged: (value) {
-          if (value.length == 1 && last == false) {
-            FocusScope.of(context).nextFocus();
-          }
-          if (value.isEmpty && first == false) {
-            FocusScope.of(context).previousFocus();
-          }
-        },
-        showCursor: false,
-        readOnly: false,
+        controller: otpControllers,
         textAlign: TextAlign.center,
-        style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
         keyboardType: TextInputType.number,
         maxLength: 1,
+        style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
         decoration: InputDecoration(
           counter: Offstage(),
           enabledBorder: OutlineInputBorder(

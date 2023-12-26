@@ -70,6 +70,7 @@ class _OTPRegisterScreenState extends State<OTPRegisterScreen> {
               child: Column(
                 children: [
                   TextFormField(
+                    controller: phoneController,
                     keyboardType: TextInputType.number,
                     style: TextStyle(
                       fontSize: 18,
@@ -77,11 +78,13 @@ class _OTPRegisterScreenState extends State<OTPRegisterScreen> {
                     ),
                     decoration: InputDecoration(
                       enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: Colors.black12),
-                          borderRadius: BorderRadius.circular(10)),
+                        borderSide: BorderSide(color: Colors.black12),
+                        borderRadius: BorderRadius.circular(10),
+                      ),
                       focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: Colors.black12),
-                          borderRadius: BorderRadius.circular(10)),
+                        borderSide: BorderSide(color: Colors.black12),
+                        borderRadius: BorderRadius.circular(10),
+                      ),
                       prefix: Padding(
                         padding: EdgeInsets.symmetric(horizontal: 8),
                         child: Text(
@@ -107,13 +110,16 @@ class _OTPRegisterScreenState extends State<OTPRegisterScreen> {
                     child: ElevatedButton(
                       onPressed: () async {
                         try {
+                          // Validate and format the phone number
+                          String formattedPhoneNumber =
+                              '+92${phoneController.text}';
+
                           await FirebaseAuth.instance.verifyPhoneNumber(
                             verificationCompleted:
-                                (PhoneAuthCredential credential) {
-                              // Handle verification completed
-                            },
+                                (PhoneAuthCredential credential) {},
                             verificationFailed: (FirebaseAuthException ex) {
                               print("Verification Failed: ${ex.message}");
+                              print("Full Exception Details: $ex");
                             },
                             codeSent:
                                 (String verificationId, int? resendToken) {
@@ -129,7 +135,7 @@ class _OTPRegisterScreenState extends State<OTPRegisterScreen> {
                             codeAutoRetrievalTimeout: (String verificationId) {
                               // Handle timeout
                             },
-                            phoneNumber: phoneController.text.toString(),
+                            phoneNumber: formattedPhoneNumber,
                           );
                         } catch (e) {
                           print("Error: $e");

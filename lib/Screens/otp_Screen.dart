@@ -1,24 +1,22 @@
-import 'dart:math';
-
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:practiceapp/Screens/otpRegisterScreen.dart';
-import 'package:practiceapp/Widgets/genericTextWidget.dart';
 import 'package:practiceapp/Widgets/otpWidget.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 class OTPScreen extends StatefulWidget {
   String verificationId;
 
-   OTPScreen({super.key, required this.verificationId});
+  OTPScreen({Key? key, required this.verificationId}) : super(key: key);
 
   @override
   State<OTPScreen> createState() => _OTPScreenState();
 }
 
 class _OTPScreenState extends State<OTPScreen> {
-  TextEditingController otpController = TextEditingController();
-
+  List<TextEditingController> otpController =
+      List.generate(6, (_) => TextEditingController());
+// TextEditingController otpController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -79,25 +77,41 @@ class _OTPScreenState extends State<OTPScreen> {
                 child: Column(
                   children: [
                     Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          textFieldOTP(context),
-                          textFieldOTP(context),
-                          textFieldOTP(context),
-                          textFieldOTP(context),
-                        ]),
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: List.generate(
+                        6,
+                        (index) =>
+                            textFieldOTP(context, otpController[index])
+                      ),
+                    ),
                     SizedBox(
                       height: 4.h,
                     ),
                     Center(
                       child: InkWell(
-                        onTap: () async{
-                          try{
-PhoneAuthCredential credential=await PhoneAuthProvider.credential(verificationId: widget.verificationId,smsCode: otpController.text.toString());
-FirebaseAuth.instance.signInWithCredential(credential).then((value){
-  Navigator.push(context, MaterialPageRoute(builder: (context)=>OTPRegisterScreen()));
-});
-                          }catch(ex){
+                        onTap: () async {
+                          try {
+                            String enteredOTP = otpController
+                                .map((controller) => controller.text)
+                                .join();
+
+                            PhoneAuthCredential credential =
+                                PhoneAuthProvider.credential(
+                              verificationId: widget.verificationId,
+                              smsCode: enteredOTP,
+                            );
+
+                            await FirebaseAuth.instance
+                                .signInWithCredential(credential)
+                                .then((value) {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => OTPRegisterScreen(),
+                                ),
+                              );
+                            });
+                          } catch (ex) {
                             print(ex.toString());
                           }
                         },
@@ -116,10 +130,13 @@ FirebaseAuth.instance.signInWithCredential(credential).then((value){
                             ),
                           ),
                           child: Align(
-                            child: genericTextWidget("Verify",
-                                color: Colors.white,
-                                fontSize: 17.sp,
-                                fontWeight: FontWeight.w600),
+                            child: Text(
+                              'Verify',
+                              style: TextStyle(
+                                  fontSize: 17.sp,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.w600),
+                            ),
                           ),
                         ),
                       ),

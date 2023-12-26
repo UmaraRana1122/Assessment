@@ -61,7 +61,7 @@ dependencies:
   firebase_storage: ^11.2.6
   flutter_easyloading: ^3.0.5
   flutter_image_compress:
-  firebase_auth: ^4.9.0
+  firebase_auth: ^4.15.3
   flutter_cache_manager: ^3.3.1
   google_sign_in: 
   crypto: 
