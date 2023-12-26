@@ -1,10 +1,23 @@
+import 'dart:math';
+
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:practiceapp/Screens/otpRegisterScreen.dart';
 import 'package:practiceapp/Widgets/genericTextWidget.dart';
 import 'package:practiceapp/Widgets/otpWidget.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
-class OTPScreen extends StatelessWidget {
-  const OTPScreen({super.key});
+class OTPScreen extends StatefulWidget {
+  String verificationId;
+
+   OTPScreen({super.key, required this.verificationId});
+
+  @override
+  State<OTPScreen> createState() => _OTPScreenState();
+}
+
+class _OTPScreenState extends State<OTPScreen> {
+  TextEditingController otpController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -78,7 +91,16 @@ class OTPScreen extends StatelessWidget {
                     ),
                     Center(
                       child: InkWell(
-                        onTap: () {},
+                        onTap: () async{
+                          try{
+PhoneAuthCredential credential=await PhoneAuthProvider.credential(verificationId: widget.verificationId,smsCode: otpController.text.toString());
+FirebaseAuth.instance.signInWithCredential(credential).then((value){
+  Navigator.push(context, MaterialPageRoute(builder: (context)=>OTPRegisterScreen()));
+});
+                          }catch(ex){
+                            print(ex.toString());
+                          }
+                        },
                         child: Container(
                           height: 7.h,
                           width: 100.w,

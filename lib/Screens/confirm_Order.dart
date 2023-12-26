@@ -27,7 +27,7 @@ class ConfirmOrder extends StatelessWidget {
                         children: [
                           InkWell(
                             onTap: () {
-                              Get.to(() => OrderDetail());
+                              Get.back();
                             },
                             child: Image.asset(
                               "assets/icons/back.png",

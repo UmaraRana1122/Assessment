@@ -5,6 +5,7 @@ import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
 import 'package:practiceapp/API/fireSroteAPI.dart';
 import 'package:practiceapp/Screens/edit_Payment.dart';
+import 'package:practiceapp/Screens/otpRegisterScreen.dart';
 import 'package:practiceapp/Screens/otp_Screen.dart';
 import 'package:practiceapp/services/authservices.dart';
 import 'package:practiceapp/services/fireStoreServices.dart';
@@ -49,7 +50,9 @@ class MyApp extends StatelessWidget {
       builder: (context, orientation, screenType) {
         return GetMaterialApp(
           debugShowCheckedModeBanner: false,
-          home: OTPScreen(),
+          home: OTPRegisterScreen(
+              // verificationId: '',
+              ),
           builder: EasyLoading.init(),
         );
       },
