@@ -4,6 +4,7 @@ import 'package:practiceapp/Screens/otpRegisterScreen.dart';
 import 'package:practiceapp/Widgets/otpWidget.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
+// ignore: must_be_immutable
 class OTPScreen extends StatefulWidget {
   String verificationId;
 
@@ -16,7 +17,6 @@ class OTPScreen extends StatefulWidget {
 class _OTPScreenState extends State<OTPScreen> {
   List<TextEditingController> otpController =
       List.generate(6, (_) => TextEditingController());
-// TextEditingController otpController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -79,10 +79,9 @@ class _OTPScreenState extends State<OTPScreen> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: List.generate(
-                        6,
-                        (index) =>
-                            textFieldOTP(context, otpController[index])
-                      ),
+                          6,
+                          (index) =>
+                              textFieldOTP(context, otpController[index])),
                     ),
                     SizedBox(
                       height: 4.h,

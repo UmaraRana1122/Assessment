@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:practiceapp/Screens/order_Detail.dart';
 import 'package:practiceapp/Widgets/confirmOrderWidget.dart';
 import 'package:practiceapp/Widgets/genericTextWidget.dart';
 import 'package:practiceapp/Widgets/paymentWidget.dart';

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:practiceapp/Controller/AuthController.dart';
+import 'package:practiceapp/Screens/forgotPassword.dart';
 import 'package:practiceapp/Widgets/genericTextWidget.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
@@ -54,7 +55,6 @@ class _LoginInScreenScreenState extends State<LoginInScreen> {
                               SizedBox(
                                 height: 5.h,
                               ),
-
                               Padding(
                                 padding: const EdgeInsets.all(4.0),
                                 child: Container(
@@ -187,84 +187,25 @@ class _LoginInScreenScreenState extends State<LoginInScreen> {
                                   ),
                                 ),
                               ),
-
                               SizedBox(
                                 height: 2.h,
                               ),
-                              Row(
-                                children: [
-                                  InkWell(
-                                    onTap: () {
-                                      _.check = !_.check;
-                                      _.update();
-                                    },
-                                    child: CircleAvatar(
-                                      radius: 1.h,
-                                      backgroundColor: Colors.grey,
-                                      child: _.check
-                                          ? CircleAvatar(
-                                              radius: 1.1.h,
-                                              backgroundColor:
-                                                  Color(0xffF4F4F4),
-                                              child: CircleAvatar(
-                                                radius: 1.h,
-                                                backgroundColor:
-                                                    Color(0xff53E88B),
-                                                child: Image.asset(
-                                                  "assets/icons/tick.png",
-                                                  height: 1.3.h,
-                                                ),
-                                              ),
-                                            )
-                                          : SizedBox(),
-                                    ),
-                                  ),
-                                  SizedBox(width: 2.w),
-                                  genericTextWidget('Keep Me Signed In',
-                                      color: Color(0xff7d7e7f),
-                                      fontSize: 14.sp,
-                                      fontWeight: FontWeight.w400),
-                                ],
+                              Align(
+                                alignment: Alignment.bottomRight,
+                                child: InkWell(
+                                  onTap: () {
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) =>
+                                                ForgotPasswordScreen()));
+                                  },
+                                  child: genericTextWidget("Forgot Password?",
+                                      fontSize: 16.sp,
+                                      fontWeight: FontWeight.w500,
+                                      color: Color(0xff15BE77)),
+                                ),
                               ),
-                              // SizedBox(
-                              //   height: 1.h,
-                              // ),
-                              // Row(
-                              //   children: [
-                              //     InkWell(
-                              //       onTap: () {
-                              //         _.check2 = !_.check2;
-                              //         _.update();
-                              //       },
-                              //       child: CircleAvatar(
-                              //         radius: 1.h,
-                              //         backgroundColor: Colors.grey,
-                              //         child: _.check2
-                              //             ? CircleAvatar(
-                              //                 radius: 1.1.h,
-                              //                 backgroundColor:
-                              //                     Color(0xffF4F4F4),
-                              //                 child: CircleAvatar(
-                              //                   radius: 1.h,
-                              //                   backgroundColor:
-                              //                       Color(0xff53E88B),
-                              //                   child: Image.asset(
-                              //                     "assets/icons/tick.png",
-                              //                     height: 1.3.h,
-                              //                   ),
-                              //                 ),
-                              //               )
-                              //             : SizedBox(),
-                              //       ),
-                              //     ),
-                              //     SizedBox(width: 2.w),
-                              //     genericTextWidget(
-                              //         'Email Me About Special Pricing',
-                              //         color: Color(0xff7d7e7f),
-                              //         fontSize: 14.sp,
-                              //         fontWeight: FontWeight.w400),
-                              //   ],
-                              // ),
                               SizedBox(height: 6.h),
                               InkWell(
                                 onTap: () {

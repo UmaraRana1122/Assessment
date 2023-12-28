@@ -20,6 +20,7 @@ class AuthController extends GetxController {
   bool isCheck = false;
   bool check2 = false;
   bool isCheck2 = false;
+ 
   suggestName() async {
     if (currentUser.userName == "") {
       name.text =
