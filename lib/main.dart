@@ -5,7 +5,6 @@ import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
 import 'package:practiceapp/API/fireSroteAPI.dart';
 import 'package:practiceapp/Screens/login.dart';
-import 'package:practiceapp/Screens/new.dart';
 import 'package:practiceapp/services/authservices.dart';
 import 'package:practiceapp/services/fireStoreServices.dart';
 import 'package:practiceapp/services/localServices.dart';
@@ -42,7 +41,6 @@ Future<void> onInit() async {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return ResponsiveSizer(
