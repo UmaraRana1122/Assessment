@@ -1,17 +1,17 @@
 class UserModel {
   String id = '', fcmId = '';
   DateTime createDate = DateTime(1998);
-  int userType = 0; //0:User, 1:Vendor
-  String loginType = 'email'; // Email - Gmail - Apple
+  int userType = 0; 
+  String loginType = 'email'; 
   String email = '', number = '', contactEmail = '';
   String initialPassword = '';
-  String userName = '', name = '', contactName = ''; // Unique
+  String userName = '', name = '', contactName = ''; 
   bool online = true, enable = true;
-  bool completeProfile = false; // Profile is completed
+  bool completeProfile = false; 
   String closeStatusReason = '';
-  int plan = 0; // 0:FreeMonth, 1:Vipplan, 2:Promotionalbite (7 days)
+  int plan = 0; 
   String planKey = '';
-  DateTime planExpireDate = DateTime.now(); // Get from the Api Revenuecat
+  DateTime planExpireDate = DateTime.now(); 
   String shortDescription = "", moreDescription = "";
   List<int> regionType = [], foodType = [], resType = [];
   List<String> typeFilters = [];

@@ -12,7 +12,6 @@ class DetailMenu extends StatelessWidget {
         body: Stack(
       children: [
         Container(
-          // margin: EdgeInsets.only(bottom: 1.h),
           height: 47.h,
           width: 100.w,
           decoration: BoxDecoration(

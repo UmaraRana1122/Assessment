@@ -5,15 +5,8 @@ import 'package:practiceapp/Controller/AuthController.dart';
 import 'package:practiceapp/Widgets/genericTextWidget.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
-class SignInScreen extends StatefulWidget {
+class SignInScreen extends StatelessWidget {
   const SignInScreen({super.key});
-
-  @override
-  State<SignInScreen> createState() => _SignInScreenState();
-}
-
-class _SignInScreenState extends State<SignInScreen> {
-  bool _isObscure = true;
   @override
   Widget build(BuildContext context) {
     return GetBuilder<AuthController>(
@@ -187,7 +180,7 @@ class _SignInScreenState extends State<SignInScreen> {
                                   ),
                                   child: TextFormField(
                                     controller: _.password,
-                                    obscureText: _isObscure,
+                                    obscureText: _.isObscure,
                                     cursorColor: Color(0xff4B5768),
                                     style: GoogleFonts.quicksand(
                                       color: Color(0xff4B5768),
@@ -224,12 +217,12 @@ class _SignInScreenState extends State<SignInScreen> {
                                       ),
                                       suffixIcon: GestureDetector(
                                         onTap: () {
-                                          setState(() {
-                                            _isObscure = !_isObscure;
-                                          });
+                                        
+                                            _.isObscure = !_.isObscure;
+                                      _.update();
                                         },
                                         child: Icon(
-                                          _isObscure
+                                          _.isObscure
                                               ? Icons.visibility
                                               : Icons.visibility_off,
                                           color: Color(0xff808B95),
@@ -260,7 +253,7 @@ class _SignInScreenState extends State<SignInScreen> {
                                   ),
                                   child: TextFormField(
                                     controller: _.cPassword,
-                                    obscureText: _isObscure,
+                                    obscureText: _.isObscure,
                                     cursorColor: Color(0xff4B5768),
                                     style: GoogleFonts.quicksand(
                                       color: Color(0xff4B5768),
@@ -297,12 +290,13 @@ class _SignInScreenState extends State<SignInScreen> {
                                       ),
                                       suffixIcon: GestureDetector(
                                         onTap: () {
-                                          setState(() {
-                                            _isObscure = !_isObscure;
-                                          });
+                                         
+                                            _.isObscure = !_.isObscure;
+                                      _.update();
+                                        
                                         },
                                         child: Icon(
-                                          _isObscure
+                                          _.isObscure
                                               ? Icons.visibility
                                               : Icons.visibility_off,
                                           color: Color(0xff808B95),
@@ -356,45 +350,7 @@ class _SignInScreenState extends State<SignInScreen> {
                                       fontWeight: FontWeight.w400),
                                 ],
                               ),
-                              // SizedBox(
-                              //   height: 1.h,
-                              // ),
-                              // Row(
-                              //   children: [
-                              //     InkWell(
-                              //       onTap: () {
-                              //         _.check2 = !_.check2;
-                              //         _.update();
-                              //       },
-                              //       child: CircleAvatar(
-                              //         radius: 1.h,
-                              //         backgroundColor: Colors.grey,
-                              //         child: _.check2
-                              //             ? CircleAvatar(
-                              //                 radius: 1.1.h,
-                              //                 backgroundColor:
-                              //                     Color(0xffF4F4F4),
-                              //                 child: CircleAvatar(
-                              //                   radius: 1.h,
-                              //                   backgroundColor:
-                              //                       Color(0xff53E88B),
-                              //                   child: Image.asset(
-                              //                     "assets/icons/tick.png",
-                              //                     height: 1.3.h,
-                              //                   ),
-                              //                 ),
-                              //               )
-                              //             : SizedBox(),
-                              //       ),
-                              //     ),
-                              //     SizedBox(width: 2.w),
-                              //     genericTextWidget(
-                              //         'Email Me About Special Pricing',
-                              //         color: Color(0xff7d7e7f),
-                              //         fontSize: 14.sp,
-                              //         fontWeight: FontWeight.w400),
-                              //   ],
-                              // ),
+                              
                               SizedBox(height: 6.h),
                               InkWell(
                                 onTap: () {

@@ -10,6 +10,7 @@ import '../services/authservices.dart';
 
 class AuthController extends GetxController {
   int currentindex = 0;
+  bool isObscure = true;
 
   TextEditingController email = TextEditingController();
   TextEditingController name = TextEditingController();
